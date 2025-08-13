@@ -1,0 +1,252 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="VMS.Site2" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Visitor Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #127ea0;
+            --accent: #fff8cc;
+            --dark: #0a0c18;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--primary);
+            color: var(--accent);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: -200px;
+            width: calc(100% + 400px);
+            height: calc(100% + 400px);
+            background:
+                radial-gradient(circle at top, rgba(255, 248, 204, 0.2), transparent 40%),
+                radial-gradient(circle at bottom, rgba(255, 248, 204, 0.15), transparent 40%),
+                radial-gradient(circle at left, rgba(255, 248, 204, 0.1), transparent 30%),
+                radial-gradient(circle at right, rgba(255, 248, 204, 0.1), transparent 30%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(100px);
+        }
+
+        form {
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background: #0b7ba2;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            color: var(--accent);
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            width: 60px;
+        }
+
+        .sidebar h1 {
+            font-size: 20px;
+            padding: 20px;
+            margin: 0;
+            color: var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .sidebar a {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 248, 204, 0.1);
+        }
+
+        .sidebar .icon {
+            font-size: 18px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .sidebar .label {
+            display: inline;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sidebar.collapsed .label {
+            display: none;
+        }
+
+        .sidebar.collapsed a {
+            justify-content: center;
+        }
+
+        .topbar {
+            height: 60px;
+            background: #0b7ba2;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 220px;
+            right: 0;
+            z-index: 998;
+            transition: left 0.3s ease;
+            color: var(--accent);
+        }
+
+        .topbar.collapsed {
+            left: 60px;
+        }
+
+        .menu-btn {
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--accent);
+        }
+
+        .main-content {
+    margin-left: 220px;
+    margin-top: 60px;
+    padding: 30px;
+    transition: margin-left 0.3s ease;
+    flex-grow: 1;
+    background-color: #fff8ce;
+    color: #000; /* Optional: better contrast on light bg */
+    
+}
+
+
+        .main-content.collapsed {
+            margin-left: 60px;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.05);
+            text-align: center;
+            padding: 12px;
+            font-size: 13px;
+            color: var(--accent);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .topbar, .main-content {
+                left: 0;
+                margin-left: 0;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const topbar = document.getElementById("topbar");
+            const content = document.getElementById("main-content");
+
+            sidebar.classList.toggle("collapsed");
+            topbar.classList.toggle("collapsed");
+            content.classList.toggle("collapsed");
+        }
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="sidebar" class="sidebar">
+            <h1>YouVisit</h1>
+            
+            <a href="FrontDesk.aspx" title="Front Desk">
+                <span class="icon">🧾</span>
+                <span class="label">Front Desk</span>
+            </a>
+            <a href="AssignBadge.aspx" title="Assign Badge">
+                <span class="icon">🪪</span>
+                <span class="label">Assign Badge</span>
+            </a>
+            <a href="VisitorCheckOut.aspx" title="Visitor Check Out">
+                <span class="icon">📤</span>
+                <span class="label">Visitor Check Out</span>
+            </a>
+            <a href="ReceptionLog.aspx" title="Reception Log">
+                <span class="icon">🧾</span>
+                <span class="label">Reception Log</span>
+            </a>
+            <a href="ReceptionDashboard.aspx" title="Reception Dashboard">
+                <span class="icon">🧾</span>
+                <span class="label">Reception Dashboard</span>
+            </a>
+            
+        </div>
+
+        <div id="topbar" class="topbar">
+            <div class="d-flex align-items-center">
+                <span class="menu-btn me-3" onclick="toggleSidebar()">☰</span>
+                <asp:ContentPlaceHolder ID="pageTitle" runat="server" />
+            </div>
+            <div>
+                <asp:Label ID="lblUser" runat="server" CssClass="fw-bold me-3" Style="color: var(--accent);" />
+                    <asp:LinkButton ID="btnSignOut" runat="server" CssClass="btn btn-sm btn-outline-light" OnClick="btnSignOut_Click">
+                        🔓 Sign Out
+                    </asp:LinkButton>
+
+            </div>
+        </div>
+
+        <div id="main-content" class="main-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Visitor Management System. All rights reserved.
+        </div>
+    </form>
+</body>
+</html>

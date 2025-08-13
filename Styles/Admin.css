@@ -1,0 +1,173 @@
+﻿body {
+    background-color: #f4f6f8;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Stat Cards */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    flex: 1 1 200px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-visitors {
+    background-color: #8e24aa;
+}
+
+.stat-business {
+    background-color: #f9a825;
+}
+
+.stat-personal {
+    background-color: #29b6f6;
+}
+
+.stat-job {
+    background-color: #512da8;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+    .table thead th {
+        background-color: #f1f1f1;
+        color: #333;
+        font-size: 14px;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .table tbody tr {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+    .table td {
+        color: #555;
+        text-align: center;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+/* Buttons */
+.btn-edit {
+    background-color: #1e88e5;
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+    .btn-edit:hover {
+        background-color: #1565c0;
+    }
+
+.btn-delete {
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+    .btn-delete:hover {
+        background-color: #c62828;
+    }
+
+/* Toast */
+#toast {
+    visibility: hidden;
+    min-width: 280px;
+    background-color: #323232;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 14px;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    box-shadow: 0px 0px 12px #000;
+    transition: 0.5s;
+}
+
+    #toast.show {
+        visibility: visible;
+        animation: fadein 0.4s, fadeout 0.4s 3.5s;
+    }
+
+@keyframes fadein {
+    from {
+        bottom: 20px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 40px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 40px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 20px;
+        opacity: 0;
+    }
+}

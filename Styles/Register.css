@@ -1,0 +1,170 @@
+﻿/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0b7ba2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff8cc;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    min-height: 550px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    flex-direction: row;
+}
+
+/* Left Side - Welcome */
+.left {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #fff8cc;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+    .left img {
+        width: 90px;
+        margin-bottom: 25px;
+    }
+
+    .left h2 {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: #fff8cc;
+    }
+
+    .left p {
+        font-size: 15px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        color: #e6ffe6;
+    }
+
+    .left a,
+    .left .btn {
+        color: #ffe68f;
+        text-decoration: underline;
+        background: none;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+/* Right Side - Form */
+.right {
+    flex: 1;
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    background-color: transparent;
+}
+
+    .right h2 {
+        font-size: 26px;
+        color: #fff8cc;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+/* Form styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+    .form-group label {
+        font-size: 14px;
+        color: #fff8cc;
+        margin-bottom: 3px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="file"],
+    .right .input,
+    .right .aspNet-TextBox,
+    .right .aspNet-FileUpload {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 14px;
+        color: #fff8cc;
+        transition: border 0.3s ease, background-color 0.3s ease;
+    }
+
+    .form-group input::placeholder {
+        color: #ffe68f;
+    }
+
+    .form-group input:focus {
+        border-color: #ffe68f;
+        background-color: rgba(255, 255, 255, 0.15);
+        outline: none;
+    }
+
+/* Button */
+.right .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #fff8cc;
+    border: none;
+    color: #0b7ba2;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .right .btn:hover {
+        background-color: #fff3a1;
+        box-shadow: 0 0 12px #fff8cc;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .left, .right {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+        .right h2 {
+            margin-top: 0;
+        }
+}

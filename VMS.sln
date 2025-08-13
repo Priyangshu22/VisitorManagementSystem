@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMS", "VMS\VMS.csproj", "{DC2D7411-9954-4133-83CC-03722EC30E98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC2D7411-9954-4133-83CC-03722EC30E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC2D7411-9954-4133-83CC-03722EC30E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC2D7411-9954-4133-83CC-03722EC30E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC2D7411-9954-4133-83CC-03722EC30E98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA299680-6102-4D64-B218-75B51CB97B79}
+	EndGlobalSection
+EndGlobal
